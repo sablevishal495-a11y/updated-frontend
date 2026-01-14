@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Frookoon | Cart</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&family=League+Spartan:wght@600;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- AUTH GUARD -->
+  <script>
+    if (
+      localStorage.getItem("isLoggedIn") !== "true" ||
+      localStorage.getItem("role") !== "user"
+    ) {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+
+<body class="cart-page">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="../assets/images/logo.png">
+      <span>Frookoon</span>
+    </div>
+
+    <a href="product.html" class="home-btn">← Back to Products</a>
+  </header>
+
+  <!-- PAGE TITLE -->
+  <h1 class="page-title">Your Cart</h1>
+
+  <!-- MAIN CART WRAPPER -->
+  <main class="cart-container">
+
+    <div class="cart-items" id="cart-items"></div>
+
+
+    <!-- DELIVERY DETAILS -->
+    <div class="delivery-box">
+      <h3>Delivery Details</h3>
+
+      <div class="delivery-grid">
+        <input id="cust-name" placeholder="Full Name">
+        <input id="cust-phone" placeholder="Phone Number">
+      </div>
+
+      <textarea id="cust-address" placeholder="Delivery Address"></textarea>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="cart-summary">
+      <p class="price">Total: <span id="total-amount">₹0</span></p>
+      <button class="add-btn" onclick="placeOrder()">Place Order</button>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <h3>Frookoon</h3>
+      <p>want anything? we have it all!</p>
+      <p>Contact Us : +91 1234567890</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="../js/script.js"></script>
+
+  <script>
+    function placeOrder() {
+      const name = document.getElementById("cust-name").value;
+      const phone = document.getElementById("cust-phone").value;
+      const address = document.getElementById("cust-address").value;
+
+      if (!name || !phone || !address) {
+        alert("Please fill delivery details");
+        return;
+      }
+
+      localStorage.setItem("cart", JSON.stringify([]));
+      alert("Order placed successfully!");
+      window.location.href = "product.html";
+    }
+  </script>
+
+</body>
+
+</html>

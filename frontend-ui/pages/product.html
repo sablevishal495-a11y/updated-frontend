@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Products | Frookoon</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&family=League+Spartan:wght@600;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script>
+    if (
+      localStorage.getItem("isLoggedIn") !== "true" ||
+      localStorage.getItem("role") !== "user"
+    ) {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="../assets/images/logo.png">
+      <span>Frookoon</span>
+    </div>
+
+    <div 
+      <span class="menu-icon">⋮</span>
+      <div class="menu-dropdown">
+        <a href="#">Profile</a>
+        <a href="cart.html">My Cart</a>
+        <a href="#" onclick="logout()">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- OFFER -->
+  <section class="offer-banner">
+    <div class="offer-content">
+      <h2>🔥 Up to <span>90% OFF</span></h2>
+      <p>On selected products – Limited time offer!</p>
+      <button class="add-btn" onclick="document.getElementById('fruits').scrollIntoView({behavior:'smooth'})">
+        Shop Now
+      </button>
+    </div>
+  </section>
+
+  <!-- FRUITS -->
+  <h1 class="page-title">Fruits</h1>
+  <div class="products" id="fruits">
+
+    <div class="product-card"><img src="../assets/images/apple.png">
+      <h3>Apple</h3>
+      <p class="price">₹120</p><button class="add-btn" onclick="addToCart('Apple',120,'../assets/images/apple.png')">Add
+        to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/banana.png">
+      <h3>Banana</h3>
+      <p class="price">₹60</p><button class="add-btn" onclick="addToCart('Banana',60,'../assets/images/banana.png')">Add
+        to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/orange.png">
+      <h3>Orange</h3>
+      <p class="price">₹80</p><button class="add-btn" onclick="addToCart('Orange',80,'../assets/images/orange.png')">Add
+        to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/mango.png">
+      <h3>Mango</h3>
+      <p class="price">₹150</p><button class="add-btn" onclick="addToCart('Mango',150,'../assets/images/mango.png')">Add
+        to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/grapes.png">
+      <h3>Grapes</h3>
+      <p class="price">₹90</p><button class="add-btn" onclick="addToCart('Grapes',90,'../assets/images/grapes.png')">Add
+        to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/kiwi.png">
+      <h3>Kiwi</h3>
+      <p class="price">₹190</p><button class="add-btn" onclick="addToCart('Kiwi',190,'../assets/images/kiwi.png')">Add
+        to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/papaya.png">
+      <h3>Papaya</h3>
+      <p class="price">₹90</p><button class="add-btn" onclick="addToCart('Papaya',90,'../assets/images/papaya.png')">Add
+        to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/tomato.png">
+      <h3>Tomato</h3>
+      <p class="price">₹40</p><button class="add-btn" onclick="addToCart('Tomato',40,'../assets/images/tomato.png')">Add
+        to Cart</button>
+    </div>
+  </div>
+
+  <!-- DAILY ESSENTIALS -->
+  <h1 class="page-title">Daily Essentials</h1>
+  <div class="products">
+
+    <div class="product-card"><img src="../assets/images/milk.png">
+      <h3>Milk</h3>
+      <p class="price">₹60</p><button class="add-btn" onclick="addToCart('Milk',60,'../assets/images/milk.png')">Add to
+        Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/bread.png">
+      <h3>Bread</h3>
+      <p class="price">₹40</p><button class="add-btn" onclick="addToCart('Bread',40,'../assets/images/bread.png')">Add
+        to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/eggs.png">
+      <h3>Eggs</h3>
+      <p class="price">₹90</p><button class="add-btn" onclick="addToCart('Eggs',90,'../assets/images/eggs.png')">Add to
+        Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/rice.png">
+      <h3>Rice</h3>
+      <p class="price">₹70</p><button class="add-btn" onclick="addToCart('Rice',70,'../assets/images/rice.png')">Add to
+        Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/oil.png">
+      <h3>Cooking Oil</h3>
+      <p class="price">₹150</p><button class="add-btn"
+        onclick="addToCart('Cooking Oil',150,'../assets/images/oil.png')">Add to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/sugar.png">
+      <h3>Sugar</h3>
+      <p class="price">₹50</p><button class="add-btn" onclick="addToCart('Sugar',50,'../assets/images/sugar.png')">Add
+        to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/tea.png">
+      <h3>Tea</h3>
+      <p class="price">₹100</p><button class="add-btn" onclick="addToCart('Tea',100,'../assets/images/tea.png')">Add to
+        Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/chilli.png">
+      <h3>Chilli Powder</h3>
+      <p class="price">₹100</p><button class="add-btn"
+        onclick="addToCart('Chilli Powder',100,'../assets/images/chilli.png')">Add to Cart</button>
+    </div>
+
+  </div>
+
+  <!-- APPAREL -->
+  <h1 class="page-title">Apparel</h1>
+  <div class="products">
+
+    <div class="product-card"><img src="../assets/images/tshirt.png">
+      <h3>Men T-Shirt</h3>
+      <p class="price">₹499</p><button class="add-btn"
+        onclick="addToCart('Men T-Shirt',499,'../assets/images/tshirt.png')">Add to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/jeans.png">
+      <h3>Blue Jeans</h3>
+      <p class="price">₹999</p><button class="add-btn"
+        onclick="addToCart('Blue Jeans',999,'../assets/images/jeans.png')">Add to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/hoodie.png">
+      <h3>Winter Hoodie</h3>
+      <p class="price">₹1299</p><button class="add-btn"
+        onclick="addToCart('Winter Hoodie',1299,'../assets/images/hoodie.png')">Add to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/shoes.png">
+      <h3>Casual Shoes</h3>
+      <p class="price">₹1799</p><button class="add-btn"
+        onclick="addToCart('Casual Shoes',1799,'../assets/images/shoes.png')">Add to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/gloves.png">
+      <h3>Winter Gloves</h3>
+      <p class="price">₹199</p><button class="add-btn"
+        onclick="addToCart('Winter Gloves',199,'../assets/images/gloves.png')">Add to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/cap.png">
+      <h3>Winter Cap</h3>
+      <p class="price">₹199</p><button class="add-btn"
+        onclick="addToCart('Winter Cap',199,'../assets/images/cap.png')">Add to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/jacket.png">
+      <h3>Winter Jacket</h3>
+      <p class="price">₹1299</p><button class="add-btn"
+        onclick="addToCart('Winter Jacket',1299,'../assets/images/jacket.png')">Add to Cart</button>
+    </div>
+    <div class="product-card"><img src="../assets/images/socks.png">
+      <h3>Winter Socks</h3>
+      <p class="price">₹99</p><button class="add-btn"
+        onclick="addToCart('Winter Socks',99,'../assets/images/socks.png')">Add to Cart</button>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <h3>Frookoon</h3>
+      <p>want anything? we have it all!</p>
+      <p>Contact Us : +91 1234567890</p>
+    </div>
+  </footer>
+
+  <!-- FLOATING CART -->
+  <a href="cart.html" class="floating-cart">
+    🛒 <span class="cart-count">0</span>
+  </a>
+
+  <script src="../js/script.js"></script>
+  <script>
+    function logout() {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vendor Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="../assets/images/logo.png">
+    <span>Vendor Panel</span>
+  </div>
+</header>
+
+<main class="cart-section">
+  <h1 class="page-title">Placed Orders</h1>
+  <div id="orders"></div>
+</main>
+
+<script>
+const orders = JSON.parse(localStorage.getItem("orders")) || [];
+const container = document.getElementById("orders");
+
+if (orders.length === 0) {
+  container.innerHTML = "<p>No orders yet</p>";
+}
+
+orders.forEach((order, index) => {
+  container.innerHTML += `
+    <div class="cart-summary">
+      <h3>Order #${index + 1}</h3>
+      <p><b>Name:</b> ${order.customer.name}</p>
+      <p><b>Phone:</b> ${order.customer.phone}</p>
+      <p><b>Address:</b> ${order.customer.address}</p>
+      <p><b>Date:</b> ${order.date}</p>
+      <p><b>Total:</b> ₹${order.total}</p>
+
+      <ul>
+        ${order.items.map(i => 
+          `<li>${i.name} × ${i.qty}</li>`
+        ).join("")}
+      </ul>
+    </div>
+  `;
+});
+</script>
+
+</body>
+</html>
